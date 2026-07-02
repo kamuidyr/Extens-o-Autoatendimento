@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Flow Assistant - Bonfire Edition",
+  "version": "2.0.0",
+  "description": "Automação inteligente de alta precisão com persistência avançada para a plataforma Flow.",
+  "author": "Yago Ricardo",
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://genesis.veronet.com.br/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://genesis.veronet.com.br/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

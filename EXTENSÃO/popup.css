@@ -1,0 +1,221 @@
+/* Tema Dark Souls Ultra Dark */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #060608; /* Preto asfalto profundo */
+  color: #d1d5db;
+  width: 240px; /* Layout compacto e menor */
+  overflow: hidden;
+  position: relative;
+}
+
+/* Renderização da Imagem de Fundo Local */
+.bonfire-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.18; /* Se achar muito escuro, mude para 0.40 */
+  
+  /* Entra na pasta fogueira.png e puxa o arquivo webp real que está lá dentro */
+  background-image: url('fogueira.png/Site-community-image.webp'); 
+  
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 85%;
+  pointer-events: none;
+}
+
+/* Efeito de Gradiente de Brasa Inferior */
+.fire-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 110%, rgba(239, 68, 68, 0.2) 0%, transparent 75%);
+}
+
+/* Partículas/Faíscas de Fogo */
+.particle {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 50%;
+  background: linear-gradient(to top, #ff3700, #ffaa00);
+  opacity: 0;
+  animation: rise 4.5s infinite linear;
+  filter: blur(0.3px);
+}
+
+/* Variações das faíscas em posições e tempos alternados */
+.particle:nth-child(1) { left: 25%; width: 2.5px; height: 2.5px; animation-delay: 0s; animation-duration: 3.8s; }
+.particle:nth-child(2) { left: 48%; width: 1.5px; height: 1.5px; animation-delay: 1.2s; animation-duration: 4.8s; }
+.particle:nth-child(3) { left: 65%; width: 3.2px; height: 3.2px; animation-delay: 2.1s; animation-duration: 4s; }
+.particle:nth-child(4) { left: 38%; width: 1.2px; height: 1.2px; animation-delay: 2.8s; animation-duration: 5.2s; }
+.particle:nth-child(5) { left: 78%; width: 2.2px; height: 2.2px; animation-delay: 0.7s; animation-duration: 4.3s; }
+
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  12% { opacity: 0.85; }
+  80% { opacity: 0.5; }
+  100% { transform: translateY(-150px) scale(0.3); opacity: 0; }
+}
+
+/* Conteúdo Principal da Janela */
+.card {
+  position: relative;
+  z-index: 3;
+  padding: 12px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.25);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.2px;
+  color: #f3f4f6;
+}
+
+.highlight {
+  color: #ef4444;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+.sub-brand {
+  font-size: 8.5px;
+  color: #6b7280;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.status-badge {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  font-size: 9.5px;
+  padding: 1px 6px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.status-dot {
+  width: 5px;
+  height: 5px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.section-title {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 0.8px;
+  margin: 10px 0 6px 0;
+}
+
+.steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.steps li {
+  font-size: 10.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  color: #9ca3af;
+}
+
+.steps li span {
+  background: #1f2937;
+  color: #f3f4f6;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+.steps li b {
+  color: #e5e7eb;
+}
+
+.diag-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.diag-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.diag-line p {
+  margin: 0;
+  font-size: 10px;
+  color: #9ca3af;
+}
+
+.badge {
+  font-size: 8px;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 3px;
+  min-width: 62px;
+  text-align: center;
+}
+
+.badge.red { background: rgba(239, 68, 68, 0.15); border: 1px solid rgba(21, 18, 18, 0.35); color: #f87171; }
+.badge.yellow { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); color: #fbbf24; }
+.badge.green { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.35); color: #34d399; }
+
+/* Rodapé e Link de Redirecionamento do Dev */
+.footer {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding-top: 8px;
+  font-size: 10px;
+  color: #4b5563;
+  text-align: center;
+}
+
+.author-link {
+  color: #9ca3af;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.author-link:hover {
+  color: #ef4444;
+  text-shadow: 0 0 5px rgba(239, 68, 68, 0.6);
+}
